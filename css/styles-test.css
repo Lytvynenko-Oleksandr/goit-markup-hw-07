@@ -61,7 +61,6 @@ p {
 .hero {
     padding-top: 0px;
     padding-bottom: 0px;
-    width: 100%;
 }
 
 .hero-title {
@@ -70,10 +69,11 @@ p {
     font-weight: 700;
     font-size: 36px;
     color: var(--background-color);
-    font-size: 56px;
     line-height: 1.11;
     letter-spacing: 0.02em;
-    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 72px;
+    width: 320px;
 }
 
 .hero-button {
@@ -108,22 +108,30 @@ p {
     background-color: var(--secondary-text-color);
     padding-top: 188px;
     padding-bottom: 188px;
-    max-width: 1440px;
-    height: 600px;
+    background-size: 856px 864px;
+    background-repeat: no-repeat;
+    background-position: center top;
     margin-left: auto;
     margin-right: auto;
     background-image: linear-gradient(rgba(46, 47, 66, 0.7),
             rgba(46, 47, 66, 0.7)),
-        url("../images/background-hero.jpg")
+        url("../images/mobile-bg-hero.jpg")
+}
+
+@media screen and (min-device-pixel-ratio: 2) and (max-width: 767px), screen and (min-resolutionЖ: 192dpi) and (max-width: 767px), screen and (min-resolution: 2dppx) and (max-width: 767px) {
+    .overlya {
+        background-image: linear-gradient(rgba(46, 47, 66, 0.7),
+                    rgba(46, 47, 66, 0.7)),
+                     url("../images/mobile-bg-hero@2x.jpg");
+    }
 }
 
 /* Слоган */
 .slogan-list-title, .team-title, .customers-title {
-    font-family: 'Roboto';
     font-style: normal;
     font-weight: 700;
     font-size: 36px;
-    line-height: 40px;
+    line-height: 1.11;
     letter-spacing: 0.02em;
     text-align: center;
     color: #2E2F42;
@@ -206,22 +214,19 @@ p {
     background-color: var(--background-color);
     padding: 32px 0px;
     width: 264px;
+    margin: 0 auto;
 }
-
-/* .team-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-} */
 
 .team-list>.item {
     margin-top: 72px;
 }
 
+
 .team-list>.item>img {
     display: block;
     max-width: 100%;
     height: auto;
+    margin: 0 auto;
 }
 
 /* Секция клиенты  */
@@ -368,7 +373,213 @@ p {
 }
 
 
-@media screen and (max-width: 1200px) {
+/* Модальное окно */
+.backdrop {
+    position: fixed;
+    display: flex;
+    top: 0px;
+    right: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(46, 47, 66, 0.4);
+
+    transition-property: opacity;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.backdrop.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.backdrop.is-hidden .modal {
+    transform: translate(-50%, -50%) scale(0.7)
+}
+
+.modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    padding: 72px 24px 24px 24px;
+    transition-property: transform;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    width: 408px;
+    height: 604px;
+    background-color: var(--background-color);
+}
+
+.btn {
+    position: absolute;
+    margin: 0;
+    width: 24px;
+    height: 24px;
+    top: 24px;
+    right: 24px;
+    border-radius: 50%;
+    background: #E7E9FC;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    transition-property: trabackground-color;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn:hover,
+.btn:focus {
+    background-color: var(--change-color-button);
+}
+
+/* Форма */
+.name-form {
+    display: flex;
+    justify-content: center;
+    margin-top: 0px;
+    margin-bottom: 14px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+}
+
+.form-decoration {
+    color: #8E8F99;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.04em;
+}
+
+
+.form-element {
+    border: 1px solid rgba(33, 33, 33, 0.2);
+    border-radius: 4px;
+    height: 40px;
+    width: 100%;
+    padding-left: 42px;
+
+    transition-property: border-color;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.form-element:focus {
+    outline: none;
+    border-color: var(--change-color-link);
+}
+
+.form-element:focus+svg {
+    fill: var(--change-color-link);
+}
+
+.accept {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.04em;
+    color: #757575;
+
+}
+
+.accept span {
+    text-decoration-line: underline;
+    color: var(--change-color-link);
+    margin-left: 3px;
+}
+
+.modal-btn {
+    display: block;
+    margin: 0 auto;
+    margin-top: 24px;
+    cursor: pointer;
+    width: 169px;
+    height: 56px;
+    color: var(--background-color);
+    background-color: var(--change-color-link);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    border: none;
+
+    transition-property: background-color;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-btn:hover,
+.modal-btn:focus {
+    background-color: var(--change-color-button);
+}
+
+.feedback {
+    resize: none;
+    width: 100%;
+    height: 120px;
+    padding-left: 16px;
+    padding-top: 8px;
+    border: 1px solid rgba(33, 33, 33, 0.2);
+    border-radius: 4px;
+    margin-top: 4px;
+    margin-bottom: 16px;
+}
+
+.icon-form {
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-top: 4px;
+    margin-bottom: 8px;
+}
+
+.icon-form svg {
+    position: absolute;
+    left: 16px;
+    transition-property: fill;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.visualy {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0px;
+    overflow: hidden;
+    border: 0;
+    clip: rect(0 0 0 0);
+}
+
+.user-policy:checked+.accept>.fake-chekbox>svg {
+    border-color: var(--change-color-button);
+    border-radius: 2px;
+    opacity: 1;
+}
+
+.fake-chekbox {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 8px;
+    width: 16px;
+    height: 16px;
+    border: 1.25px solid #2E2F42;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.fake-chekbox svg {
+    position: absolute;
+    opacity: 0;
+    align-items: center;
+    justify-content: center;
+}
+
+
+@media screen and (max-width: 1199px) {
     .icon-decoration {
         display: none;
     }
@@ -397,6 +608,25 @@ p {
     .container {
         width: 766px;
     }
+
+        @media screen and (min-width: 768px) {
+            .overlya {
+                background-size: 1536px 872px;
+                background-image: linear-gradient(rgba(46, 47, 66, 0.7),
+                            rgba(46, 47, 66, 0.7)),
+                             url('../images/tablet-bg-hero.jpg');
+            }
+        }
+    
+        @media screen and (min-device-pixel-ratio: 2) and (min-width: 768px),
+        screen and (min-resolution: 192dpi) and (min-width: 768px),
+        screen and (min-resolution: 2dppx) and (min-width: 768px) {
+            .overlya {
+                background-image: linear-gradient(rgba(46, 47, 66, 0.7),
+                            rgba(46, 47, 66, 0.7)),
+                             url('../images/tablet-bg-hero@2x.jpg');
+            }
+        } 
 
         /* Хедер */
         .menu-nav {
@@ -485,6 +715,18 @@ p {
             color: var(--change-color-link);
         }
 
+        /* Герой */
+        .hero-title {
+            margin-bottom: 48px;
+            margin-left: auto;
+            margin-right: auto;
+            color: var(--background-color);
+            font-size: 56px;
+            line-height: 1.07;
+            text-align: center;
+            width: 500px;
+        }
+
                 /* Слоган */
         .slogan-list {            
             display: flex;
@@ -520,6 +762,7 @@ p {
             flex-wrap: wrap;
             column-gap: 24px;
             row-gap: 64px;
+            justify-content: center;
         }
 
         .team-list>.item {
@@ -536,6 +779,7 @@ p {
             flex-wrap: wrap;
             column-gap: 24px;
             row-gap: 72px;
+            justify-content: center;
         }
 
         .social {
@@ -548,18 +792,42 @@ p {
             display: flex;
             column-gap: 24px;
             align-items: flex-end;
+            width: 502px;
         }
 
         .footer-btn {
             margin-top: 0px;
         }
-        
+
+        .logo-footer-position {
+            text-align: left;
+        }
 }
 
 @media screen and (min-width: 1200px) {
     .container {
         width: 1158px;
     }
+
+           @media screen and (min-width: 1200px) {
+            .overlya {
+                background-size: 1440px 600px;
+                background-image: linear-gradient(rgba(46, 47, 66, 0.7),
+                rgba(46, 47, 66, 0.7)),
+                url('../images/desktop-bg-hero.jpg');
+            }
+        }
+
+                 @media screen and (min-device-pixel-ratio: 2) and (min-width: 1200px),
+                 screen and (min-resolution: 192dpi) and (min-width: 1200px),
+                 screen and (min-resolution: 2dppx) and (min-width: 1200px) {
+                     .overlya {
+                        background-size: 2880px 1200px;
+                        background-image: linear-gradient(rgba(46, 47, 66, 0.7),
+                        rgba(46, 47, 66, 0.7)),
+                        url('../images/desktop-bg-hero@2x.jpg');
+                     }
+                 }
 
     .section {
         padding-top: 120px;
@@ -592,7 +860,7 @@ p {
         font-size: 56px;
         line-height: 1.07;
         text-align: center;
-        width: 494px;
+        width: 500px;
     }
 
     /* Секция слоган */

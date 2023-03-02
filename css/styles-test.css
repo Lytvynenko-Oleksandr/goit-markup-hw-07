@@ -18,6 +18,12 @@ p {
     padding: 0px;
 }
 
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
 .list {
     list-style-type: none;
     padding: 0;
@@ -70,17 +76,6 @@ p {
     cursor: pointer;
 }
 
-.mobile-menu-btn .mobile-close {
-    display: none;
-}
-
-.mobile-menu-btn .is-open .mobile-close {
-    display: block;
-}
-
-.mobile-menu-btn .is-open .mobile-open {
-    display: none;
-}
 
 .mobile-header {
     position: relative;
@@ -91,20 +86,6 @@ p {
     margin-bottom: 24px;
 }
 
-.mobile-menu {
-    display: none;
-    position: absolute;
-    width: 100%;
-    height: 600px;
-    left: 0;
-    top: 100%;
-    background-color: #31D0AA;
-}
-
-.mobile-menu .is-open {
-    display: block;
-}
-
 /* Секция Hero */
 
 .hero {
@@ -113,8 +94,6 @@ p {
 }
 
 .hero-title {
-    font-family: 'Roboto';
-    font-style: normal;
     font-weight: 700;
     font-size: 36px;
     color: var(--background-color);
@@ -122,7 +101,9 @@ p {
     letter-spacing: 0.02em;
     margin: 0 auto;
     margin-bottom: 72px;
-    width: 320px;
+    margin-top: 112px;
+    width: 350px;
+    text-align: center;
 }
 
 .hero-button {
@@ -155,23 +136,30 @@ p {
 
 .overlya {
     background-color: var(--secondary-text-color);
-    padding-top: 188px;
-    padding-bottom: 188px;
-    max-width: 1440;
-    height: 432px;
+    max-width: 1440px;
+    height: 600px;
+    padding-top: 112px;
+    padding-bottom: 112px;
+    margin-left: auto;
+    margin-right: auto;
+    background-size:cover;
+    background-position: center;
     background-repeat: no-repeat;
     background-image: linear-gradient(rgba(46, 47, 66, 0.7),
-            rgba(46, 47, 66, 0.7)),
-        url("../images/mobile-bg-hero.jpg")
+    rgba(46, 47, 66, 0.7)),
+    url("../images/mobile-bg-hero.jpg");
 }
 
-@media screen and (min-device-pixel-ratio: 2) and (max-width: 767px), screen and (min-resolutionЖ: 192dpi) and (max-width: 767px), screen and (min-resolution: 2dppx) and (max-width: 767px) {
+@media screen and (max-width: 767px) and (min-device-pixel-ratio: 2),
+screen and (max-width: 767px) and (-webkit-min-device-pixel-ratio: 2),
+screen and (max-width: 767px) and (min-resolution: 192dpi),
+screen and (max-width: 767px) and (min-resolution: 2dppx) {
     .overlya {
         background-image: linear-gradient(rgba(46, 47, 66, 0.7),
-                    rgba(46, 47, 66, 0.7)),
-                     url("../images/mobile-bg-hero@2x.jpg");
+        rgba(46, 47, 66, 0.7)),
+        url('../images/mobile-bg-hero@2x.jpg');
+        }
     }
-}
 
 /* Слоган */
 .slogan-list-title, .team-title, .customers-title {
@@ -660,7 +648,7 @@ p {
     left: 0;
     width: 100vw;
     height: 100vh;
-    padding: 32px;
+    padding: 80px 35px 40px 40px;
     background-color: var(--background-color);
     z-index: 999;
 
@@ -679,28 +667,87 @@ p {
     color: #000000;
     background-color: var(--third-text-color);
 
-        transition-property: background-color, color;
-        transition-duration: 250ms;
-        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-property: background-color, color;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
     
-        .menu-toggle:hover,
-        .menu-toggle:focus {
-            background-color: var(--change-color-button);
-            color: var(--background-color);
-        }
-
-.mobile-menu {
-    padding: 0;
-    margin: 0;
-    list-style: none;
+.menu-toggle:hover,
+.menu-toggle:focus {
+    background-color: var(--change-color-button);
+    color: var(--background-color);
 }
 
-.mobile-menu .link {
-    display: block;
-    padding: 10px;
-    color: red;
+.mobile-menu {
+    margin-bottom: 284px;
+}
+
+.mobile-menu .item {
+    margin-bottom: 40px;
+}
+
+.mobile-menu-link {
     text-decoration: none;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 1.1;
+    letter-spacing: 0.02em;
+    color: var(--secondary-text-color);
+}
+
+.mobile-link-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--change-color-link);
+
+    transition-property: background-color;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mobile-link-footer:hover,
+.mobile-link-footer:focus {
+    background-color: var(--change-color-button);
+}
+
+
+.contcts-phone {
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 1.1;
+    letter-spacing: 0.02em;
+    color: var(--change-color-link);
+}
+
+.contcts-email {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1.2;
+    letter-spacing: 0.02em;
+    color: var(--primary-text-color);
+}
+
+.mobile-contacts {
+    margin-bottom: 48px;
+}
+
+.mobile-contacts .item {
+    margin-bottom: 40px;
+}
+
+.mobile-footer {
+    display: flex;
+    column-gap: 56px;
+    justify-content: flex-start;
+}
+       
+.active-mobile {
+    color: var(--change-color-link);
 }
 
 
@@ -726,8 +773,8 @@ p {
     .contacts {
         display: none;
     }
-}
 
+}
 
 @media screen and (min-width: 768px) {
     .container {
@@ -742,23 +789,23 @@ p {
         margin: 0;
     }
 
-        @media screen and (min-width: 768px) {
-            .overlya {
-                background-image: linear-gradient(rgba(46, 47, 66, 0.7),
-                            rgba(46, 47, 66, 0.7)),
-                             url('../images/tablet-bg-hero.jpg');
-            }
+    .overlya {
+        background-image: linear-gradient(rgba(46, 47, 66, 0.7),
+        rgba(46, 47, 66, 0.7)),
+        url('../images/tablet-bg-hero.jpg');
+    }
+
+    @media screen and (min-width: 768px) and (min-device-pixel-ratio: 2),
+    screen and (min-width: 768px) and (-webkit-min-device-pixel-ratio: 2),
+    screen and (min-width: 768px) and (min-resolution: 192dpi),
+    screen and (min-width: 768px) and (min-resolution: 2dppx) {
+        .overlya {
+            background-image: linear-gradient(rgba(46, 47, 66, 0.7),
+            rgba(46, 47, 66, 0.7)),
+            url('../images/tablet-bg-hero@2x.jpg');
         }
-    
-        @media screen and (min-device-pixel-ratio: 2) and (min-width: 768px),
-        screen and (min-resolution: 192dpi) and (min-width: 768px),
-        screen and (min-resolution: 2dppx) and (min-width: 768px) {
-            .overlya {
-                background-image: linear-gradient(rgba(46, 47, 66, 0.7),
-                            rgba(46, 47, 66, 0.7)),
-                             url('../images/tablet-bg-hero@2x.jpg');
-            }
-        } 
+    }
+
 
         /* Хедер */
         .menu-nav {
@@ -854,14 +901,14 @@ p {
 
         /* Герой */
         .hero-title {
-            margin-bottom: 48px;
+            margin-bottom: 40px;
             margin-left: auto;
             margin-right: auto;
             color: var(--background-color);
             font-size: 56px;
             line-height: 1.07;
             text-align: center;
-            width: 500px;
+            width: 520px;
         }
 
                 /* Слоган */
@@ -946,24 +993,22 @@ p {
         width: 1158px;
     }
 
-           @media screen and (min-width: 1200px) {
-            .overlya {
-                background-image: linear-gradient(rgba(46, 47, 66, 0.7),
-                rgba(46, 47, 66, 0.7)),
-                url('../images/desktop-bg-hero.jpg');
-            }
-        }
+    .overlya {
+        background-image: linear-gradient(rgba(46, 47, 66, 0.7),
+        rgba(46, 47, 66, 0.7)),
+        url('../images/desktop-bg-hero.jpg');
+    }
 
-                 @media screen and (min-device-pixel-ratio: 2) and (min-width: 1200px),
-                 screen and (min-resolution: 192dpi) and (min-width: 1200px),
-                 screen and (min-resolution: 2dppx) and (min-width: 1200px) {
-                     .overlya {
-                        background-size: 2880px 1200px;
-                        background-image: linear-gradient(rgba(46, 47, 66, 0.7),
-                        rgba(46, 47, 66, 0.7)),
-                        url('../images/desktop-bg-hero@2x.jpg');
-                     }
-                 }
+    @media screen and (min-width: 1200px) and (min-device-pixel-ratio: 2),
+    screen and (min-width: 1200px) and (-webkit-min-device-pixel-ratio: 2),
+    screen and (min-width: 1200px) and (min-resolution: 192dpi),
+    screen and (min-width: 1200px) and (min-resolution: 2dppx) {
+        .overlya {
+            background-image: linear-gradient(rgba(46, 47, 66, 0.7),
+            rgba(46, 47, 66, 0.7)),
+            url('../images/desktop-bg-hero@2x.jpg');
+        }
+    }
 
     .section {
         padding-top: 120px;
@@ -998,13 +1043,6 @@ p {
     /* Секция герой */
     .hero-title {
         margin-bottom: 48px;
-        margin-left: auto;
-        margin-right: auto;
-        color: var(--background-color);
-        font-size: 56px;
-        line-height: 1.07;
-        text-align: center;
-        width: 500px;
     }
 
     /* Секция слоган */

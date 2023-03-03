@@ -430,9 +430,19 @@ screen and (max-width: 767px) and (min-resolution: 2dppx) {
     transition-property: transform;
     transition-duration: 250ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    width: 408px;
-    height: 604px;
+    width: 100%; 
     background-color: var(--background-color);
+}
+
+@media screen and (min-width: 400px) {
+    .modal {
+        width: 400px;
+        height: 604px;
+    }
+
+    .test {
+        display: flex;
+    }
 }
 
 .btn {

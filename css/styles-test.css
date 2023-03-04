@@ -430,19 +430,8 @@ screen and (max-width: 767px) and (min-resolution: 2dppx) {
     transition-property: transform;
     transition-duration: 250ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    width: 100%; 
+    width: 95%; 
     background-color: var(--background-color);
-}
-
-@media screen and (min-width: 400px) {
-    .modal {
-        width: 400px;
-        height: 604px;
-    }
-
-    .test {
-        display: flex;
-    }
 }
 
 .btn {
@@ -519,7 +508,7 @@ screen and (max-width: 767px) and (min-resolution: 2dppx) {
 
 }
 
-.accept span {
+.color-privacy {
     text-decoration-line: underline;
     color: var(--change-color-link);
     margin-left: 3px;
@@ -717,7 +706,7 @@ screen and (max-width: 767px) and (min-resolution: 2dppx) {
 .contcts-phone {
     text-decoration: none;
     font-weight: 700;
-    font-size: 36px;
+    font-size: 24px;
     line-height: 1.1;
     letter-spacing: 0.02em;
     color: var(--change-color-link);
@@ -726,7 +715,7 @@ screen and (max-width: 767px) and (min-resolution: 2dppx) {
 .contcts-email {
     text-decoration: none;
     font-weight: 500;
-    font-size: 20px;
+    font-size: 16px;
     line-height: 1.2;
     letter-spacing: 0.02em;
     color: var(--primary-text-color);
@@ -742,7 +731,7 @@ screen and (max-width: 767px) and (min-resolution: 2dppx) {
 
 .mobile-footer {
     display: flex;
-    column-gap: 56px;
+    column-gap: 24px;
     justify-content: flex-start;
 }
        
@@ -750,6 +739,29 @@ screen and (max-width: 767px) and (min-resolution: 2dppx) {
     color: var(--change-color-link);
 }
 
+
+@media screen and (min-width: 430px) {
+    .modal {
+        width: 400px;
+        height: 604px;
+    }
+
+    .foter-mobile-accept {
+        display: flex;
+    }
+
+    .mobile-footer {
+        column-gap: 54px;
+    }
+
+    .contcts-phone {
+        font-size: 35px;
+    }
+
+    .contcts-email {
+        font-size: 20px;
+    }
+}
 
 @media screen and (max-width: 1199px) {
     .icon-decoration {
